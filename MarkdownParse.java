@@ -13,10 +13,25 @@ public class MarkdownParse {
         int currentIndex = 0;
         System.out.println(currentIndex);
         while(currentIndex < markdown.length()) {
+
+            if (markdown.substring(currentIndex, currentIndex+1).equals("\n")) {
+                currentIndex++;
+            }
+
+            System.out.println("length of file: " + markdown.length());
+
             int openBracket = markdown.indexOf("[", currentIndex);
+            System.out.println("openBracket: " + openBracket);
+
             int closeBracket = markdown.indexOf("]", openBracket);
+            System.out.println("closeBracket: " + closeBracket);
+
             int openParen = markdown.indexOf("(", closeBracket);
+            System.out.println("openParen: " + openParen);
+
             int closeParen = markdown.indexOf(")", openParen);
+            System.out.println("closeParen: " +closeParen);
+
             toReturn.add(markdown.substring(openParen + 1, closeParen));
             currentIndex = closeParen + 1;
             System.out.println(currentIndex);
