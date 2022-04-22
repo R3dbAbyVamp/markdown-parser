@@ -14,20 +14,32 @@ public class MarkdownParse {
         System.out.println(currentIndex);
         while(currentIndex < markdown.length()) {
 
+            // Check if character is blank space. If yes, skip it.
             if (markdown.substring(currentIndex, currentIndex+1).equals("\n")) {
                 currentIndex++;
             }
 
+            // System.out.println("hey ");
+
             System.out.println("length of file: " + markdown.length());
+
+            // if (openBracket == -1) {
+            //     int openBracket = markdown.indexOf("[", currentIndex);
+            //     System.out.println("openBracket: " + openBracket);
+            //     break;
+            // }
 
             int openBracket = markdown.indexOf("[", currentIndex);
             System.out.println("openBracket: " + openBracket);
+
 
             int closeBracket = markdown.indexOf("]", openBracket);
             System.out.println("closeBracket: " + closeBracket);
 
             int openParen = markdown.indexOf("(", closeBracket);
             System.out.println("openParen: " + openParen);
+
+            // Check if there is open parentheses after the first open parentheses 
 
             int closeParen = markdown.indexOf(")", openParen);
             System.out.println("closeParen: " +closeParen);
@@ -46,5 +58,6 @@ public class MarkdownParse {
         String content = Files.readString(fileName);
         ArrayList<String> links = getLinks(content);
 	    System.out.println(links);
+        System.out.println("hey ");
     }
 }
