@@ -1,5 +1,6 @@
 //https://howtodoinjava.com/java/io/java-read-file-to-string-examples/
 
+
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -12,6 +13,7 @@ public class MarkdownParse {
         // find the next [, then find the ], then find the (, then read link upto next )
         int currentIndex = 0;
         System.out.println(currentIndex);
+
         while(currentIndex < markdown.length()) {
 
             // Check if character is blank space. If yes, skip it.
@@ -23,15 +25,15 @@ public class MarkdownParse {
 
             System.out.println("length of file: " + markdown.length());
 
-            // if (openBracket == -1) {
-            //     int openBracket = markdown.indexOf("[", currentIndex);
-            //     System.out.println("openBracket: " + openBracket);
-            //     break;
-            // }
 
             int openBracket = markdown.indexOf("[", currentIndex);
             System.out.println("openBracket: " + openBracket);
 
+            if (openBracket == -1) {
+                int openBracket = markdown.indexOf("[", currentIndex);
+                System.out.println("openBracket: " + openBracket);
+                break;
+            }
 
             int closeBracket = markdown.indexOf("]", openBracket);
             System.out.println("closeBracket: " + closeBracket);
@@ -43,6 +45,8 @@ public class MarkdownParse {
 
             int closeParen = markdown.indexOf(")", openParen);
             System.out.println("closeParen: " +closeParen);
+
+            
 
             toReturn.add(markdown.substring(openParen + 1, closeParen));
             currentIndex = closeParen + 1;
@@ -58,6 +62,6 @@ public class MarkdownParse {
         String content = Files.readString(fileName);
         ArrayList<String> links = getLinks(content);
 	    System.out.println(links);
-        System.out.println("hey ");
+        // System.out.println("hey ");
     }
 }
