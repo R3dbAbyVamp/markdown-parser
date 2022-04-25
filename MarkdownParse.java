@@ -23,7 +23,7 @@ public class MarkdownParse {
         // while(currentIndex < markdown.length()) {
 
             // Check if character is blank space. If yes, skip it.
-            if (markdown.substring(currentIndex, currentIndex+1).equals("\n")) {
+            while (markdown.substring(currentIndex, currentIndex+1).equals("\n")) {
                 currentIndex++;
             }
 
