@@ -14,7 +14,11 @@ public class MarkdownParse {
         int currentIndex = 0;
         System.out.println(currentIndex);
 
-        while(currentIndex < markdown.length()) {
+        boolean hasOpenBracket = markdown.indexOf("[", currentIndex) != -1;
+        System.out.println("Has open bracket: " + hasOpenBracket);
+
+        while(currentIndex < markdown.length() && hasOpenBracket) {
+        // while(currentIndex < markdown.length()) {
 
             // Check if character is blank space. If yes, skip it.
             if (markdown.substring(currentIndex, currentIndex+1).equals("\n")) {
@@ -26,14 +30,17 @@ public class MarkdownParse {
             System.out.println("length of file: " + markdown.length());
 
 
+            // int openBracket = markdown.indexOf("[", currentIndex);
+            // System.out.println("openBracket: " + openBracket);
+
+            // if (markdown.indexOf("[", currentIndex) == -1) {
+            // int openBracket = markdown.indexOf("[", currentIndex);
+            // System.out.println("openBracket: " + openBracket);
+            //     break;
+            // }
+
             int openBracket = markdown.indexOf("[", currentIndex);
             System.out.println("openBracket: " + openBracket);
-
-            if (openBracket == -1) {
-                int openBracket = markdown.indexOf("[", currentIndex);
-                System.out.println("openBracket: " + openBracket);
-                break;
-            }
 
             int closeBracket = markdown.indexOf("]", openBracket);
             System.out.println("closeBracket: " + closeBracket);
