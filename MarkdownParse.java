@@ -17,6 +17,8 @@ public class MarkdownParse {
         boolean hasOpenBracket = markdown.indexOf("[", currentIndex) != -1;
         System.out.println("Has open bracket: " + hasOpenBracket);
 
+        // Check that open bracket exists in file before executing while loop.  
+        // We assume that no link can exist if there is no initial open bracket
         while(currentIndex < markdown.length() && hasOpenBracket) {
         // while(currentIndex < markdown.length()) {
 
@@ -48,12 +50,24 @@ public class MarkdownParse {
             int openParen = markdown.indexOf("(", closeBracket);
             System.out.println("openParen: " + openParen);
 
-            // Check if there is open parentheses after the first open parentheses 
-
             int closeParen = markdown.indexOf(")", openParen);
             System.out.println("closeParen: " +closeParen);
 
-            
+            // Open bracket after close parentheses?
+            System.out.println("close parentheses is not last character in file: " + (closeParen != (markdown.length() - 1)));
+            // System.out.println("Open bracket after close parentheses?");
+            // System.out.println(markdown.substring(closeParen, closeParen + 1));  
+            // System.out.println(markdown.substring(closeParen + 1, closeParen + 2));
+            // System.out.println((markdown.substring(closeParen + 1, closeParen + 2)).equals("\n"));  
+            // System.out.println((markdown.substring(closeParen + 1, closeParen + 2)).equals("["));
+
+            // Check if there's a new line after the close parentheses. 
+            // If yes, skip the search below for the actual close parentheses
+            // if (closeParen != (markdown.length() - 1) && !(markdown.substring(closeParen + 1, closeParen + 2)).equals("\n")) {
+            //     int closeParenFirst = closeParen; 
+            //     closeParen = markdown.indexOf(")", closeParenFirst + 1);
+            //     System.out.println("closeParen Actual: " +closeParen);
+            // } 
 
             toReturn.add(markdown.substring(openParen + 1, closeParen));
             currentIndex = closeParen + 1;
