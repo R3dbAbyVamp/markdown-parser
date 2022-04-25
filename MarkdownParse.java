@@ -58,8 +58,12 @@ public class MarkdownParse {
             // System.out.println("Open bracket after close parentheses?");
             // System.out.println(markdown.substring(closeParen, closeParen + 1));  
             // System.out.println(markdown.substring(closeParen + 1, closeParen + 2));
-            // System.out.println((markdown.substring(closeParen + 1, closeParen + 2)).equals("\n"));  
-            // System.out.println((markdown.substring(closeParen + 1, closeParen + 2)).equals("["));
+            // System.out.println((markdown.substring(closeParen + 1, closeParen + 2)).equals("\n"));
+            // if (closeParen != (markdown.length() - 1)) {
+            //     System.out.println("open bracket follows closeParen?");
+            //     System.out.println((markdown.substring(closeParen + 1, closeParen + 2)).equals("["));
+
+            // }   
 
             // Check if there's a new line after the close parentheses. 
             // If yes, skip the search below for the actual close parentheses
