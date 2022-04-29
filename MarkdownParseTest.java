@@ -35,7 +35,7 @@ public class MarkdownParseTest {       // Class declaration
         expectedOutput.add("https://something.com"); 
         expectedOutput.add("some-thing.html");
 
-        // Actual`
+        // Actual
         ArrayList<String> answer = MarkdownParse.getLinks(content);
         // assertArrayEquals(expectedOutput, answer);
         assertEquals(expectedOutput, answer);
