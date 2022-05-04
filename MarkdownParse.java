@@ -67,7 +67,8 @@ public class MarkdownParse {
 
             // Check if there's a new line after the close parentheses. 
             // If yes, skip the search below for the actual close parentheses
-            if (closeParen != (markdown.length() - 1) && !(markdown.substring(closeParen + 1, closeParen + 2)).equals("\n")) {
+            if (closeParen != (markdown.length() - 1) && 
+            !(markdown.substring(closeParen + 1, closeParen + 2)).equals("\n")) {
                 int closeParenFirst = closeParen; 
                 closeParen = markdown.indexOf(")", closeParenFirst + 1);
                 System.out.println("closeParen Actual: " +closeParen);
