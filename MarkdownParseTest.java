@@ -22,6 +22,7 @@ public class MarkdownParseTest {       // Class declaration
         // Path and filename to get string for file name
         Path fileName = Path.of("/Users/paul/Documents/Github/markdown-parser/test-file.md");
         String content = Files.readString(fileName);
+        System.out.println("Hi");
 
         // // Try-catch block for IOException
         // try { 
