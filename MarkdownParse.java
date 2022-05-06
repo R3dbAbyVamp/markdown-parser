@@ -12,10 +12,10 @@ public class MarkdownParse {
         ArrayList<String> toReturn = new ArrayList<>();
         // find the next [, then find the ], then find the (, then read link upto next )
         int currentIndex = 0;
-        System.out.println(currentIndex);
+        // System.out.println(currentIndex);
 
         boolean hasOpenBracket = markdown.indexOf("[", currentIndex) != -1;
-        System.out.println("Has open bracket: " + hasOpenBracket);
+        // System.out.println("Has open bracket: " + hasOpenBracket);
 
         // Check that open bracket exists in file before executing while loop.  
         // We assume that no link can exist if there is no initial open bracket
@@ -29,7 +29,7 @@ public class MarkdownParse {
 
         // System.out.println("hey ");
 
-        System.out.println("length of file: " + markdown.length());
+        // System.out.println("length of file: " + markdown.length());
 
 
         // int openBracket = markdown.indexOf("[", currentIndex);
@@ -42,19 +42,20 @@ public class MarkdownParse {
         // }
 
         int openBracket = markdown.indexOf("[", currentIndex);
-        System.out.println("openBracket: " + openBracket);
+        // System.out.println("openBracket: " + openBracket);
 
         int closeBracket = markdown.indexOf("]", openBracket);
-        System.out.println("closeBracket: " + closeBracket);
+        // System.out.println("closeBracket: " + closeBracket);
 
         int openParen = markdown.indexOf("(", closeBracket);
-        System.out.println("openParen: " + openParen);
+        // System.out.println("openParen: " + openParen);
 
         int closeParen = markdown.indexOf(")", openParen);
-        System.out.println("closeParen: " +closeParen);
+        // System.out.println("closeParen: " +closeParen);
 
         // Open bracket after close parentheses?
-        System.out.println("close parentheses is not last character in file: " + (closeParen != (markdown.length() - 1)));
+        // System.out.println("close parentheses is not last character in file: " + (closeParen != (markdown.length() - 1)));
+        
         // System.out.println("Open bracket after close parentheses?");
         // System.out.println(markdown.substring(closeParen, closeParen + 1));  
         // System.out.println(markdown.substring(closeParen + 1, closeParen + 2));
@@ -77,6 +78,7 @@ public class MarkdownParse {
         toReturn.add(markdown.substring(openParen + 1, closeParen));
         currentIndex = closeParen + 1;
         System.out.println(currentIndex);
+        System.out.println("hi");
         }
 
         return toReturn;
