@@ -27,7 +27,7 @@ public class MarkdownParse {
             currentIndex++;
         }
 
-        // System.out.println("hey ");
+        System.out.println("hey ");
 
         // System.out.println("length of file: " + markdown.length());
 
